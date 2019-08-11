@@ -1,0 +1,24 @@
+{
+  "name": "line-web-hook-proxy",
+  "version": "1.0.0",
+  "description": "line-web-hook-proxy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alphafast/line-web-hook-proxy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alphafast/line-web-hook-proxy/issues"
+  },
+  "homepage": "https://github.com/alphafast/line-web-hook-proxy#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-http-proxy": "^1.5.1"
+  }
+}
