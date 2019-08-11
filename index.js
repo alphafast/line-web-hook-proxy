@@ -3,8 +3,8 @@ const proxy = require('express-http-proxy')
 
 const app = express()
 
-const targetUrl = process.env.LINE_WEBHOOK_URL || 'alphafast.3bbddns.com'
-const targetPort = process.env.LINE_WEBHOOK_PORT || '34900'
+const targetUrl = process.env.LINE_WEBHOOK_URL || 'www.google.com'
+const targetPort = process.env.LINE_WEBHOOK_PORT || '80'
 
 app.use('/proxy', proxy(targetUrl, {
   https: false,
