@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/alphafast/line-web-hook-proxy#readme",
   "dependencies": {
+    "@line/bot-sdk": "^6.8.2",
     "express": "^4.17.1",
-    "express-http-proxy": "^1.5.1"
+    "express-http-proxy": "^1.5.1",
+    "socket.io": "^2.2.0"
   }
 }
