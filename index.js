@@ -1,7 +1,8 @@
 const express = require('express')
 const proxy = require('express-http-proxy')
-const io = require('socket.io')
+const socketIo = require('socket.io')
 const line = require('@line/bot-sdk')
+const http = require('http')
 
 const lineConfig = {
   channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
@@ -12,8 +13,11 @@ const targetPort = process.env.LINE_WEBHOOK_PORT || '80'
 
 const app = express()
 const port = process.env.PORT || 3100
-const server = app.listen(port, () => console.log(`listening on ${port}`))
+const server = http.createServer(app)
+const io = socketIo(server)
 let socket = null
+
+server.listen(port)
 
 app.use('/proxy', proxy(targetUrl, {
   https: false,
@@ -27,7 +31,6 @@ app.post('/linewebhook/socket', line.middleware(lineConfig), (req, res) => {
   }
 })
 
-io.listen(server)
 io.on('connection', socketConnection => {
   console.log('a user connected thorough socket')
   socket = socketConnection
